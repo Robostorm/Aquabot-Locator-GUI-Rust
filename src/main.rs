@@ -29,6 +29,8 @@ use gdk::prelude::ContextExt;
 
 use gdk_pixbuf::Pixbuf;
 
+use cairo::enums::{FontSlant, FontWeight};
+
 use serial_core::SerialDevice;
 
 
@@ -150,6 +152,35 @@ fn main() {
         cr.move_to(aquabot_x, aquabot_y - 20.0);
         cr.line_to(aquabot_x, aquabot_y + 20.0);
         cr.stroke();
+
+        cr.translate(-tx, -ty);
+
+        cr.select_font_face("Sans", FontSlant::Normal, FontWeight::Normal);
+        cr.set_font_size(20.0);
+
+        cr.move_to(10.0, 30.0);
+
+        if aquabot_data.fix {
+            cr.set_source_rgb(0.0, 0.7, 0.0);
+            cr.show_text("GPS Fix!");
+        } else {
+            cr.set_source_rgb(0.1, 0.0, 0.0);
+            cr.show_text("No GPS Fix");
+        }
+
+        cr.set_source_rgb(0.0, 0.0, 0.0);
+
+        cr.move_to(10.0, 60.0);
+        cr.show_text(&format!("GPS Satelites: {}", aquabot_data.satelites));
+
+        cr.move_to(10.0, 90.0);
+        cr.show_text(&format!("GPS Latitude: {}", aquabot_data.latitude));
+
+        cr.move_to(10.0, 120.0);
+        cr.show_text(&format!("GPS Longitude: {}", aquabot_data.longitude));
+
+        cr.move_to(10.0, 150.0);
+        cr.show_text(&format!("Radio Strength: {}", aquabot_data.signal_strength));
 
         Inhibit(false)
     }));
