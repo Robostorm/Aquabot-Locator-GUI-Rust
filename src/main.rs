@@ -35,8 +35,8 @@ use serial_core::SerialDevice;
 
 
 // Fair map
-/*
-const IMG_SRC: &str = "/home/pi/aquabot-locator/fair_map.png";
+
+const IMG_SRC: &str = "/home/pi/aquabot-locator/fair_map.jpg";
 
 const START_LAT: f64 = 40.416623;
 const START_LONG: f64 = -74.883628;
@@ -46,10 +46,10 @@ const START_X: f64 = 0.0;
 const START_Y: f64 = 0.0;
 const END_X: f64 = 808.0;
 const END_Y: f64 = 831.0;
-*/
+
 
 // Tim's House
-
+/*
 const IMG_SRC: &str = "tim_map.png";
 
 const START_LAT: f64 = 40.672233;
@@ -61,6 +61,8 @@ const START_X: f64 = 0.0;
 const START_Y: f64 = 0.0;
 const END_X: f64 = 955.0;
 const END_Y: f64 = 598.0;
+*/
+
 
 const LONG_DIST: f64 = START_LONG - END_LONG;
 const LAT_DIST: f64 = START_LAT - END_LAT;
@@ -191,7 +193,7 @@ fn main() {
     let (tx, rx): (Sender<AquabotData>, Receiver<AquabotData>) = mpsc::channel();
 
     thread::spawn(move || {
-        let mut serial_port = serial::open("/dev/ttyACM1").unwrap();
+        let mut serial_port = serial::open("/dev/ttyACM0").unwrap();
 
         if let Err(err) = serial_port.set_timeout(Duration::from_secs(2)) {
             println!("Could not set timeout on serial port: {:?}", err);
