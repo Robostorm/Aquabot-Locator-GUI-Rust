@@ -1,0 +1,3 @@
+[target.arm-unknown-linux-gnueabihf]
+linker = "arm-none-eabi-gcc"
+ar = "arm-none-eabi-gcc-ar"

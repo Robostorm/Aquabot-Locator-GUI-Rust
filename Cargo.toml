@@ -1,0 +1,16 @@
+[package]
+name = "aquabot-locator"
+version = "0.1.0"
+authors = ["Tim <timothyhollabaugh@gmail.com>"]
+
+[dependencies]
+cairo-rs = "0.1.3"
+gdk = "0.5.3"
+gdk-pixbuf = "0.1.3"
+serial = "0.4.0"
+serial-core = "0.4.0"
+
+[dependencies.gtk]
+version = "0.1.3"
+features = ["v3_10"]
+
