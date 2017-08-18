@@ -36,7 +36,7 @@ use serial_core::SerialDevice;
 
 // Fair map
 /*
-const IMG_SRC: &str = "fair_map.png";
+const IMG_SRC: &str = "/home/pi/aquabot-locator/fair_map.png";
 
 const START_LAT: f64 = 40.416623;
 const START_LONG: f64 = -74.883628;
@@ -45,7 +45,7 @@ const END_LONG: f64 = -74.880168;
 const START_X: f64 = 0.0;
 const START_Y: f64 = 0.0;
 const END_X: f64 = 808.0;
-const END_Y: f64y = 831.0;
+const END_Y: f64 = 831.0;
 */
 
 // Tim's House
